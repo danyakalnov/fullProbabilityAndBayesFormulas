@@ -178,16 +178,13 @@ void fullProbabilityAndBayesFormulas::displayCalculatedResults()
 			QListWidgetItem *hypothesisConditionalProbability = new QListWidgetItem;
 			hypothesisConditionalProbability->setText( hypothesisConditionalProbabilityText );
 			ui.allConditionalProbabilities->addItem( hypothesisConditionalProbability );
-		}
 
-		for ( int hypothesisNumber = 0; hypothesisNumber < selectedHypothesesNumbers.count(); hypothesisNumber++ )
-		{
-			// Добавление во второй лист выбранных пользователем условных вероятностей гипотез
-
-			QString hypothesisConditionalProbabilityText = "P(H" + QString::number( selectedHypothesesNumbers [ hypothesisNumber ] + 1 ) + " | A" + ") = " + QString::fromStdString ( std::to_string( long double( calculatedConditionalHypothesesProbabilities[ selectedHypothesesNumbers[ hypothesisNumber ] ] ) ) );
-			QListWidgetItem *hypothesisConditionalProbability = new QListWidgetItem;
-			hypothesisConditionalProbability->setText( hypothesisConditionalProbabilityText );
-			ui.selectedConditionalProbabilities->addItem( hypothesisConditionalProbability );	
+			if( selectedHypothesesNumbers.contains( hypothesisNumber ) )
+			{
+				QListWidgetItem *hypothesisConditionalProbability = new QListWidgetItem;
+				hypothesisConditionalProbability->setText( hypothesisConditionalProbabilityText );
+				ui.selectedConditionalProbabilities->addItem( hypothesisConditionalProbability );
+			}
 		}
 	}
 }
