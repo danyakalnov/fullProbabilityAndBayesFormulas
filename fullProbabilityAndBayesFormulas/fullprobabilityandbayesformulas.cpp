@@ -94,6 +94,9 @@ void fullProbabilityAndBayesFormulas::saveInputData()
 {
 	fullGroupEventsNumber = ui.fullGroupEventsNumber->value();
 
+	// Очистка контейнера перед добавлением данных
+	selectedHypothesesNumbers.clear();
+
 	// Определение и отбор выбранных пользователем гипотез для вычисления их вероятностей
 	for ( int hypothesis = 0; hypothesis < fullGroupEventsNumber; hypothesis++ )
 		if ( hypothesesBoxes[ hypothesis ]->isChecked() )
@@ -170,7 +173,12 @@ void fullProbabilityAndBayesFormulas::displayCalculatedResults()
 		ui.conditionalProbabilitiesResultsText->setEnabled( true );
 		ui.hypothesesConditionalProbabilities->setEnabled( true );
 
-		// Добавление в первый лист всех найденных условных вероятностей гипотез
+		// Очистка List Widget'ов перед добавлением элементов
+
+		ui.allConditionalProbabilities->clear();
+		ui.selectedConditionalProbabilities->clear();
+
+		// Добавление всех найденных условных вероятностей гипотез в первый лист и выбранных условных вероятностей во второй
 
 		for ( int hypothesisNumber = 0; hypothesisNumber < ui.fullGroupEventsNumber->value(); hypothesisNumber++ )
 		{
