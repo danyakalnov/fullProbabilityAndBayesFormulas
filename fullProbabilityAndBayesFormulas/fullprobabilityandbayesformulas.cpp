@@ -207,6 +207,10 @@ void fullProbabilityAndBayesFormulas::clearAllData()
 	fullGroupEventsNumber = 1;
 	ui.fullGroupEventsNumber->setValue( ui.fullGroupEventsNumber->minimum() );
 
+	// Очистка списка введённых пользователем вероятностей
+
+	ui.enteredProbabilities->clear();
+
 	// Очистка контейнеров, содержащих введённые пользователем вероятности гипотез и условные вероятности события
 	hypothesesProbabilities.clear();
 	hypothesesConditionalProbabilities.clear();
