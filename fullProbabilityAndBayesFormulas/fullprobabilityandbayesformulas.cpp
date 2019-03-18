@@ -20,8 +20,6 @@ fullProbabilityAndBayesFormulas::fullProbabilityAndBayesFormulas(QWidget *parent
 	ui.hypothesisNumber->setText( "P(H1)" );
 	ui.conditionalHypothesisNumber->setText( "P(A | H1)" );
 
-	hypothesisProbabilityFieldWasClicked = false;
-
 	connect( ui.calculateProbabilityBtn, SIGNAL( clicked() ), this, SLOT( calculateProbability() ) );
 	connect( ui.fullGroupEventsNumber, SIGNAL( editingFinished() ), this, SLOT( addHypothesesBoxes() ) );
 	connect( ui.saveHypothesesProbabilitiesBtn, SIGNAL( clicked() ), this, SLOT( enterNextHypothesis() ) );
@@ -259,6 +257,4 @@ void fullProbabilityAndBayesFormulas::clearScrollAreaContent()
 
 	hypothesesBoxes.clear();
 	selectedHypothesesNumbers.clear();
-
-	//hypothesisProbabilityFieldWasClicked = false;
 }
