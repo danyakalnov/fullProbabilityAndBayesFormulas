@@ -49,6 +49,12 @@ void fullProbabilityAndBayesFormulas::enterNextHypothesis()
 
 		hypothesesProbabilities.append( ui.hypothesisProbability->value() );
 		hypothesesConditionalProbabilities.append( ui.hypothesisConditionalProbability->value() );
+		QString enteredProbabilitiesValues = ui.hypothesisNumber->text() + " = " + QString::number( hypothesesProbabilities[ currentHypothesis - 1 ] ) 
+											+ ", " + ui.conditionalHypothesisNumber->text() + " = " + QString::number( hypothesesConditionalProbabilities[ currentHypothesis - 1 ] );
+		QListWidgetItem *probabilitiesToList = new QListWidgetItem();
+		probabilitiesToList->setText( enteredProbabilitiesValues );
+		ui.enteredProbabilities->addItem( probabilitiesToList );
+
 		currentHypothesis++;
 
 		ui.hypothesisProbability->setValue( ui.hypothesisProbability->minimum() );
