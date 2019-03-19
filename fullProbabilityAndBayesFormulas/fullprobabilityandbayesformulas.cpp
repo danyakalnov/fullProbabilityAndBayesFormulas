@@ -278,4 +278,9 @@ void fullProbabilityAndBayesFormulas::clearProbabilitiesList()
 	// Очистка контейнеров, хранящих введённые вероятности
 	hypothesesProbabilities.clear();
 	hypothesesConditionalProbabilities.clear();
+
+	ui.hypothesisNumber->setText( "P(H1)" );
+	ui.conditionalHypothesisNumber->setText( "P(A | H1)" );
+
+	currentHypothesis = 1;
 }
