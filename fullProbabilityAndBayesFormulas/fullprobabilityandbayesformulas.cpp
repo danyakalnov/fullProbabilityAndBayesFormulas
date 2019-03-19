@@ -22,6 +22,7 @@ fullProbabilityAndBayesFormulas::fullProbabilityAndBayesFormulas(QWidget *parent
 
 	connect( ui.calculateProbabilityBtn, SIGNAL( clicked() ), this, SLOT( calculateProbability() ) );
 	connect( ui.fullGroupEventsNumber, SIGNAL( editingFinished() ), this, SLOT( addHypothesesBoxes() ) );
+	connect( ui.fullGroupEventsNumber, SIGNAL( editingFinished() ), this, SLOT( clearProbabilitiesList() ) );
 	connect( ui.saveHypothesesProbabilitiesBtn, SIGNAL( clicked() ), this, SLOT( enterNextHypothesis() ) );
 	connect( ui.clearAllBtn, SIGNAL( clicked() ), this, SLOT( clearAllData() ) );
 
@@ -267,4 +268,14 @@ void fullProbabilityAndBayesFormulas::clearScrollAreaContent()
 
 	hypothesesBoxes.clear();
 	selectedHypothesesNumbers.clear();
+}
+
+void fullProbabilityAndBayesFormulas::clearProbabilitiesList()
+{
+	// Удаление всех строк из ListWidget'a
+	ui.enteredProbabilities->clear();
+
+	// Очистка контейнеров, хранящих введённые вероятности
+	hypothesesProbabilities.clear();
+	hypothesesConditionalProbabilities.clear();
 }

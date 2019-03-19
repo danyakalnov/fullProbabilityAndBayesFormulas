@@ -21,7 +21,6 @@ private:
 	QList <double> hypothesesConditionalProbabilities; // Условные вероятности гипотез
 	QList <uint> selectedHypothesesNumbers; // Номера выбранных пользователем гипотез
 
-	bool hypothesisProbabilityFieldWasClicked;
 	uint currentHypothesis;
 	QList <QCheckBox *> hypothesesBoxes;
 
@@ -45,6 +44,8 @@ private slots:
 	void displayCalculatedResults();
 
 	void clearAllData();
+
+	void clearProbabilitiesList();
 };
 
 #endif // FULLPROBABILITYANDBAYESFORMULAS_H
